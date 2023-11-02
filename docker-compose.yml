@@ -11,7 +11,7 @@ services:
       - webfront
     labels:
       caddy: quiz.martingschneider.de
-      caddy.reverse_proxy: "{{upstreams 3100}}"
+      caddy.reverse_proxy: "{{upstreams 3000}}"
       caddy.log: ""
       caddy.header: Strict-Transport-Security "max-age=31536000;"
     volumes:
