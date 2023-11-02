@@ -5,13 +5,13 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - "3100:3000"
     networks:
       - default
       - webfront
     labels:
       caddy: quiz.martingschneider.de
-      caddy.reverse_proxy: "{{upstreams 3000}}"
+      caddy.reverse_proxy: "{{upstreams 3100}}"
       caddy.log: ""
       caddy.header: Strict-Transport-Security "max-age=31536000;"
     volumes:
