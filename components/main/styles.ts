@@ -4,17 +4,24 @@ import styled, { DefaultTheme } from 'styled-components';
 export const Wrapper = styled.div`
 	overflow: hidden;
 	height: 100vh;
+	background-color: #73E8FF;
 `;
 
 export const Card = styled.div`
 	overflow: hidden;
 
 	img {
+		transform: translateX(-50%);
 		position: absolute;
 		top: 0;
-		left: -50%;
+		left: 50%;
 		width: auto;
 		height: 100vh;
+
+		@media (orientation: landscape) {
+			width: 100vw;
+			height: auto;
+		}
 	}
 `;
 

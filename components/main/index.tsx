@@ -11,13 +11,14 @@ enum VISIBLE_INFO_CHOICES {
 }
 
 type Player = {
-	filename: string;
 	firstName: string;
 	id: number;
 	lastName: string;
+	filename?: string;
 };
 
 const players: Player[] = [
+	{ id: 2, firstName: 'Peter', lastName: 'Pekarík' },
 	{ id: 3, firstName: 'Agustín', lastName: 'Rogel', filename: '3_augustin_rogel.jpeg' },
 	{ id: 5, firstName: 'Andreas', lastName: 'Bouchalakis', filename: '5_andreas_bouchalakis.jpeg' },
 	{ id: 6, firstName: 'Michał', lastName: 'Karbownik', filename: '6_michal_karbownik.jpeg' },
@@ -81,7 +82,7 @@ const Main = () => {
 	};
 
 	const advisedPlayer = players.find(({ id }) => String(id) === advisedValue)
-		?? { id: 0, firstName: 'Vorname', lastName: 'Nachname' };
+		?? { id: '??', firstName: '???', lastName: '???' };
 	const playerNumber = visibleInfo === VISIBLE_INFO_CHOICES.NUMBER ? player.id : advisedPlayer.id;
 	const playerName = visibleInfo === VISIBLE_INFO_CHOICES.NAME
 		? <>{player.firstName}<span>{player.lastName}</span></>
@@ -90,12 +91,9 @@ const Main = () => {
 	return (
 		<S.Wrapper>
 			<S.Card>
-				<Image
-					src={`/player/${player.filename}`}
-					width={1280}
-					height={1280}
-					alt={player.firstName}
-				/>
+				{player.filename && (
+					<Image src={`/player/${player.filename}`} width={1280} height={1280} alt="" />
+				)}
 				<S.PlayerNumber
 					isAnswerd={visibleInfo !== VISIBLE_INFO_CHOICES.NUMBER && !!advisedValue}
 					isCorrect={advisedValue === String(player.id)}
@@ -103,7 +101,11 @@ const Main = () => {
 					{playerNumber}
 					{visibleInfo !== VISIBLE_INFO_CHOICES.NUMBER && (
 						<select onChange={handleChange}>
-							{players.map(({ id }) => (<option key={id} value={id}>{id}</option>))}
+							{
+								players
+									.sort(({ id: aId }, { id: bId }) => aId - bId)
+									.map(({ id }) => (<option key={id} value={id}>{id}</option>))
+							}
 						</select>
 					)}
 				</S.PlayerNumber>
