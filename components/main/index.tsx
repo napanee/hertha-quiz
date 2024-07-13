@@ -95,29 +95,29 @@ const Main = () => {
 					<Image src={`/player/${player.filename}`} width={1280} height={1280} alt="" />
 				)}
 				<S.PlayerNumber
-					isAnswerd={visibleInfo !== VISIBLE_INFO_CHOICES.NUMBER && !!advisedValue}
-					isCorrect={advisedValue === String(player.id)}
+					$isAnswerd={visibleInfo !== VISIBLE_INFO_CHOICES.NUMBER && !!advisedValue}
+					$isCorrect={advisedValue === String(player.id)}
 				>
 					{playerNumber}
 					{visibleInfo !== VISIBLE_INFO_CHOICES.NUMBER && (
 						<select onChange={handleChange}>
 							{
 								players
-									.sort(({ id: aId }, { id: bId }) => aId - bId)
+									.toSorted(({ id: aId }, { id: bId }) => aId - bId)
 									.map(({ id }) => (<option key={id} value={id}>{id}</option>))
 							}
 						</select>
 					)}
 				</S.PlayerNumber>
 				<S.PlayerName
-					isAnswerd={visibleInfo !== VISIBLE_INFO_CHOICES.NAME && !!advisedValue}
-					isCorrect={advisedValue === String(player.id)}
+					$isAnswerd={visibleInfo !== VISIBLE_INFO_CHOICES.NAME && !!advisedValue}
+					$isCorrect={advisedValue === String(player.id)}
 				>
 					{playerName}
 					{visibleInfo !== VISIBLE_INFO_CHOICES.NAME && (
 						<select onChange={handleChange}>
 							{players
-								.sort(({ lastName: aLastName }, { lastName: bLastName }) => {
+								.toSorted(({ lastName: aLastName }, { lastName: bLastName }) => {
 									if (aLastName < bLastName) {
 										return -1;
 									} else if (aLastName > bLastName) {

@@ -25,14 +25,14 @@ export const Card = styled.div`
 	}
 `;
 
-export const PlayerNumber = styled.span<{ isAnswerd: boolean; isCorrect: boolean | undefined; theme: DefaultTheme }>`
+export const PlayerNumber = styled.span<{ $isAnswerd: boolean; $isCorrect: boolean | undefined; theme: DefaultTheme }>`
 	position: absolute;
 	top: 50%;
 	left: 0;
 	padding: 1rem;
 	font-family: HerthaBlack, Arial, Helvetica, sans-serif;
 	font-size: 20vh;
-	color: ${({ isAnswerd, isCorrect, theme }) => isAnswerd && !isCorrect ? '#FF0000' : theme.palette.primary.main };
+	color: ${({ $isAnswerd, $isCorrect, theme }) => $isAnswerd && !$isCorrect ? '#FF0000' : theme.palette.primary.main };
 
 	text-shadow: 0px 0px 10px #FFFFFF;
 
@@ -48,7 +48,7 @@ export const PlayerNumber = styled.span<{ isAnswerd: boolean; isCorrect: boolean
 	}
 `;
 
-export const PlayerName = styled.span<{ isAnswerd: boolean; isCorrect: boolean | undefined; theme: DefaultTheme }>`
+export const PlayerName = styled.span<{ $isAnswerd: boolean; $isCorrect: boolean | undefined; theme: DefaultTheme }>`
 	position: absolute;
 	bottom: 2rem;
 	left: 0;
@@ -56,7 +56,7 @@ export const PlayerName = styled.span<{ isAnswerd: boolean; isCorrect: boolean |
 	font-family: HerthaRegular, Arial, Helvetica, sans-serif;
 	font-size: 8vh;
 	line-height: 1;
-	color: ${({ isAnswerd, isCorrect, theme }) => isAnswerd && !isCorrect ? '#FF0000' : theme.palette.common.white };
+	color: ${({ $isAnswerd, $isCorrect, theme }) => $isAnswerd && !$isCorrect ? '#FF0000' : theme.palette.common.white };
 	text-shadow: 0px 0px 10px #0d59a1;
 
 	> span {
