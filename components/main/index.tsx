@@ -17,40 +17,46 @@ type Player = {
 	filename?: string;
 };
 
+/**
+ * [...document.querySelectorAll('.player-teaser')].map((player) => {
+ *   const firstName = player.querySelector('.first-name').innerText.toLowerCase();
+ *   const lastName = player.querySelector('.last-name').innerText.toLowerCase();
+ *   const number = player.querySelector('.shirt-number').innerText;
+ *   const img = player.querySelector('.action-image img').src.replace('mobile', 'hd');
+ *
+ *   return {id: Number(number), firstName: `${firstName.charAt(0).toUpperCase()}${firstName.slice(1)}`, lastName: `${lastName.charAt(0).toUpperCase()}${lastName.slice(1)}`, filename: img};
+ * }).toSorted(({ id: aId }, { id: bId }) => aId - bId);
+ */
 const players: Player[] = [
-	{ id: 2, firstName: 'Peter', lastName: 'Pekarík' },
-	{ id: 3, firstName: 'Agustín', lastName: 'Rogel', filename: '3_augustin_rogel.jpeg' },
-	{ id: 5, firstName: 'Andreas', lastName: 'Bouchalakis', filename: '5_andreas_bouchalakis.jpeg' },
-	{ id: 6, firstName: 'Michał', lastName: 'Karbownik', filename: '6_michal_karbownik.jpeg' },
-	{ id: 7, firstName: 'Florian', lastName: 'Niederlechner', filename: '7_florian_niederlechner.jpeg' },
-	{ id: 8, firstName: 'Bilal', lastName: 'Hussein', filename: '8_bilal_hussein.jpeg' },
-	{ id: 9, firstName: 'Smail', lastName: 'Prevljak', filename: '9_smail_prevljak.jpeg' },
-	{ id: 11, firstName: 'Fabian', lastName: 'Reese', filename: '11_fabian_reese.jpeg' },
-	{ id: 12, firstName: 'Tjark', lastName: 'Ernst', filename: '12_tjark_ernst.jpeg' },
-	{ id: 15, firstName: 'Myziane', lastName: 'Maolida', filename: '15_myziane_maolida.jpeg' },
-	{ id: 16, firstName: 'Jonjoe', lastName: 'Kenny', filename: '16_jonjoe_kenny.jpeg' },
-	{ id: 19, firstName: 'Jeremy', lastName: 'Dudziak', filename: '19_jeremy_dudziak.jpeg' },
-	{ id: 20, firstName: 'Marc Oliver', lastName: 'Kempf', filename: '20_marc_oliver_kempf.jpeg' },
-	{ id: 21, firstName: 'Anderson', lastName: 'Lucoqui', filename: '21_anderson_lucoqui.jpeg' },
-	{ id: 22, firstName: 'Marten', lastName: 'Winkler', filename: '22_marten_winkler.jpeg' },
-	{ id: 24, firstName: 'Bence', lastName: 'Dárdai', filename: '24_bence_dardai.jpeg' },
-	{ id: 25, firstName: 'Haris', lastName: 'Tabaković', filename: '25_haris_tabakovic.jpeg' },
-	{ id: 26, firstName: 'Gustav', lastName: 'Christensen', filename: '26_gustav_christensen.jpeg' },
-	{ id: 27, firstName: 'Palkó', lastName: 'Dárdai', filename: '27_palko_dardai.jpeg' },
-	{ id: 28, firstName: 'Kélian', lastName: 'Nsona', filename: '28_kelian_nsona.jpeg' },
-	{ id: 30, firstName: 'Ibrahim', lastName: 'Maza', filename: '30_ibrahim_maza.jpeg' },
-	{ id: 31, firstName: 'Márton', lastName: 'Dárdai', filename: '31_marton_dardai.jpeg' },
-	{ id: 33, firstName: 'Robert', lastName: 'Kwasigroch', filename: '33_robert_kwasigroch.jpeg' },
-	{ id: 34, firstName: 'Deyovaisio', lastName: 'Zeefuik', filename: '34_deyovaisio_zeefuik.jpeg' },
-	{ id: 35, firstName: 'Marius', lastName: 'Gersbeck', filename: '35_marius_gersbeck.jpeg' },
-	{ id: 37, firstName: 'Toni', lastName: 'Leistner', filename: '37_toni_leistner.jpeg' },
-	{ id: 39, firstName: 'Derry', lastName: 'Scherhant', filename: '39_derry_scherhant.jpeg' },
-	{ id: 40, firstName: 'Luca', lastName: 'Wollschlaeger', filename: '40_luca_wollschlaeger.jpeg' },
-	{ id: 41, firstName: 'Pascal', lastName: 'Klemens', filename: '41_pascal_klemens.jpeg' },
-	{ id: 43, firstName: 'Tim', lastName: 'Goller', filename: '43_tim_goller.jpeg' },
-	{ id: 44, firstName: 'Linus', lastName: 'Gechter', filename: '44_linus_gechter.jpeg' },
-	{ id: 48, firstName: 'Mesut Emre', lastName: 'Kesik', filename: '48_mesut_emre_kesik.jpeg' },
-];
+	{ id: 2, firstName: "Peter", lastName: "Pekarík", filename: "https://tv.herthabsc.com/media/bsc/kicker_team_action_shot/0001/12/thumb_11498_kicker_team_action_shot_hd.jpeg" },
+	{ id: 3, firstName: "Agustín", lastName: "Rogel", filename: "https://tv.herthabsc.com/media/bsc/kicker_team_action_shot/0001/12/thumb_11127_kicker_team_action_shot_hd.jpeg" },
+	{ id: 5, firstName: "Andreas", lastName: "Bouchalakis", filename: "https://tv.herthabsc.com/media/bsc/kicker_team_action_shot/0001/12/thumb_11099_kicker_team_action_shot_hd.jpeg" },
+	{ id: 6, firstName: "Michał", lastName: "Karbownik", filename: "https://tv.herthabsc.com/media/bsc/kicker_team_action_shot/0001/12/thumb_11101_kicker_team_action_shot_hd.jpeg" },
+	{ id: 7, firstName: "Florian", lastName: "Niederlechner", filename: "https://tv.herthabsc.com/media/bsc/kicker_team_action_shot/0001/12/thumb_11126_kicker_team_action_shot_hd.jpeg" },
+	{ id: 8, firstName: "Bilal", lastName: "Hussein", filename: "https://tv.herthabsc.com/media/bsc/kicker_team_action_shot/0001/12/thumb_11097_kicker_team_action_shot_hd.jpeg" },
+	{ id: 9, firstName: "Smail", lastName: "Prevljak", filename: "https://tv.herthabsc.com/media/bsc/kicker_team_action_shot/0001/12/thumb_11116_kicker_team_action_shot_hd.jpeg" },
+	{ id: 11, firstName: "Fabian", lastName: "Reese", filename: "https://tv.herthabsc.com/media/bsc/kicker_team_action_shot/0001/12/thumb_11089_kicker_team_action_shot_hd.jpeg" },
+	{ id: 12, firstName: "Tjark", lastName: "Ernst", filename: "https://tv.herthabsc.com/media/bsc/kicker_team_action_shot/0001/12/thumb_11131_kicker_team_action_shot_hd.jpeg" },
+	{ id: 16, firstName: "Jonjoe", lastName: "Kenny", filename: "https://tv.herthabsc.com/media/bsc/kicker_team_action_shot/0001/12/thumb_11138_kicker_team_action_shot_hd.jpeg" },
+	{ id: 19, firstName: "Jeremy", lastName: "Dudziak", filename: "https://tv.herthabsc.com/media/bsc/kicker_team_action_shot/0001/12/thumb_11119_kicker_team_action_shot_hd.jpeg" },
+	{ id: 20, firstName: "Marc oliver", lastName: "Kempf", filename: "https://tv.herthabsc.com/media/bsc/kicker_team_action_shot/0001/12/thumb_11136_kicker_team_action_shot_hd.jpeg" },
+	{ id: 22, firstName: "Marten", lastName: "Winkler", filename: "https://tv.herthabsc.com/media/bsc/kicker_team_action_shot/0001/12/thumb_11139_kicker_team_action_shot_hd.jpeg" },
+	{ id: 23, firstName: "Bradley", lastName: "Ibrahim", filename: "https://tv.herthabsc.com/media/bsc/kicker_team_action_shot/0001/12/thumb_11573_kicker_team_action_shot_hd.jpeg" },
+	{ id: 25, firstName: "Haris", lastName: "Tabaković", filename: "https://tv.herthabsc.com/media/bsc/kicker_team_action_shot/0001/12/thumb_11104_kicker_team_action_shot_hd.jpeg" },
+	{ id: 26, firstName: "Gustav", lastName: "Christensen", filename: "https://tv.herthabsc.com/media/bsc/kicker_team_action_shot/0001/12/thumb_11121_kicker_team_action_shot_hd.jpeg" },
+	{ id: 27, firstName: "Palkó", lastName: "Dárdai", filename: "https://tv.herthabsc.com/media/bsc/kicker_team_action_shot/0001/12/thumb_11113_kicker_team_action_shot_hd.jpeg" },
+	{ id: 30, firstName: "Ibrahim", lastName: "Maza", filename: "https://tv.herthabsc.com/media/bsc/kicker_team_action_shot/0001/12/thumb_11164_kicker_team_action_shot_hd.jpeg" },
+	{ id: 31, firstName: "Márton", lastName: "Dárdai", filename: "https://tv.herthabsc.com/media/bsc/kicker_team_action_shot/0001/12/thumb_11146_kicker_team_action_shot_hd.jpeg" },
+	{ id: 33, firstName: "Robert", lastName: "Kwasigroch", filename: "https://tv.herthabsc.com/media/bsc/kicker_team_action_shot/0001/12/thumb_11125_kicker_team_action_shot_hd.jpeg" },
+	{ id: 34, firstName: "Deyovaisio", lastName: "Zeefuik", filename: "https://tv.herthabsc.com/media/bsc/kicker_team_action_shot/0001/12/thumb_11145_kicker_team_action_shot_hd.jpeg" },
+	{ id: 35, firstName: "Marius", lastName: "Gersbeck", filename: "https://tv.herthabsc.com/media/bsc/kicker_team_action_shot/0001/11/thumb_10331_kicker_team_action_shot_hd.jpeg" },
+	{ id: 37, firstName: "Toni", lastName: "Leistner", filename: "https://tv.herthabsc.com/media/bsc/kicker_team_action_shot/0001/12/thumb_11107_kicker_team_action_shot_hd.jpeg" },
+	{ id: 39, firstName: "Derry", lastName: "Scherhant", filename: "https://tv.herthabsc.com/media/bsc/kicker_team_action_shot/0001/12/thumb_11130_kicker_team_action_shot_hd.jpeg" },
+	{ id: 41, firstName: "Pascal", lastName: "Klemens", filename: "https://tv.herthabsc.com/media/bsc/kicker_team_action_shot/0001/12/thumb_11142_kicker_team_action_shot_hd.jpeg" },
+	{ id: 43, firstName: "Tim", lastName: "Goller", filename: "https://tv.herthabsc.com/media/bsc/kicker_team_action_shot/0001/12/thumb_11122_kicker_team_action_shot_hd.jpeg" },
+	{ id: 44, firstName: "Linus", lastName: "Gechter", filename: "https://tv.herthabsc.com/media/bsc/kicker_team_action_shot/0001/12/thumb_11135_kicker_team_action_shot_hd.jpeg" },
+	{ id: 48, firstName: "Mesut emre", lastName: "Kesik", filename: "https://tv.herthabsc.com/media/bsc/kicker_team_action_shot/0001/11/thumb_10684_kicker_team_action_shot_hd.jpeg" },
+ ];
 
 
 const Main = () => {
@@ -85,14 +91,14 @@ const Main = () => {
 		?? { id: '??', firstName: '???', lastName: '???' };
 	const playerNumber = visibleInfo === VISIBLE_INFO_CHOICES.NUMBER ? player.id : advisedPlayer.id;
 	const playerName = visibleInfo === VISIBLE_INFO_CHOICES.NAME
-		? <>{player.firstName}<span>{player.lastName}</span></>
-		: <>{advisedPlayer?.firstName} <span>{advisedPlayer?.lastName}</span></>;
+		? <>{player.firstName.toUpperCase()}<span>{player.lastName.toUpperCase()}</span></>
+		: <>{advisedPlayer?.firstName.toUpperCase()} <span>{advisedPlayer?.lastName.toUpperCase()}</span></>;
 
 	return (
 		<S.Wrapper>
 			<S.Card>
 				{player.filename && (
-					<Image src={`/player/${player.filename}`} width={1280} height={1280} alt="" />
+					<Image src={player.filename} width={1280} height={1280} alt="" />
 				)}
 				<S.PlayerNumber
 					$isAnswerd={visibleInfo !== VISIBLE_INFO_CHOICES.NUMBER && !!advisedValue}

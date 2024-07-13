@@ -4,6 +4,15 @@ const nextConfig = {
 		styledComponents: true
 	},
 	reactStrictMode: true,
+	images: {
+		remotePatterns: [
+			{
+				protocol: 'https',
+				hostname: 'tv.herthabsc.com',
+				port: '',
+			},
+		],
+	},
 }
 
 module.exports = nextConfig
