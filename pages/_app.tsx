@@ -50,6 +50,10 @@ const GlobalStyle = createGlobalStyle`
 const theme: DefaultTheme = {
 	borderRadius: '5px',
 	palette: {
+		background: {
+			primary: '#003974',
+			secondary: '#0D59A1',
+		},
 		common: {
 			black: '#000000',
 			white: '#FFFFFF',
@@ -59,8 +63,14 @@ const theme: DefaultTheme = {
 			contrastText: '#FFFFFF',
 		},
 		secondary: {
-			main: '#0070f3',
+			main: '#73E8FF',
 			contrastText: '#FFFFFF',
+		},
+	},
+	shadow: {
+		text: {
+			primary: '0 0 10px #FFFFFF',
+			secondary: '0 0 10px #0D59A1',
 		},
 	},
 };
