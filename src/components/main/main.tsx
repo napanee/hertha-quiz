@@ -50,7 +50,6 @@ export const playerListComplete: Player[] = [
 	{ id: 42, firstName: 'Deyovaisio', lastName: 'Zeefuik', filename: 'https://tv.herthabsc.com/media/bsc/kicker_team_standard/0001/12/thumb_11692_kicker_team_standard_hd.jpeg' },
 	{ id: 43, firstName: 'Tim', lastName: 'Goller', filename: 'https://tv.herthabsc.com/media/bsc/kicker_team_standard/0001/12/thumb_11694_kicker_team_standard_hd.jpeg' },
 	{ id: 44, firstName: 'Linus', lastName: 'Gechter', filename: 'https://tv.herthabsc.com/media/bsc/kicker_team_standard/0001/12/thumb_11683_kicker_team_standard_hd.jpeg' },
-	{ id: 45, firstName: 'Wilfried', lastName: 'Kanga', filename: 'https://tv.herthabsc.com/media/bsc/kicker_team_standard/0001/12/thumb_11717_kicker_team_standard_hd.jpeg' },
 	{ id: 47, firstName: 'Selim', lastName: 'Telib', filename: 'https://tv.herthabsc.com/media/bsc/kicker_team_standard/0001/12/thumb_11699_kicker_team_standard_hd.jpeg' },
 ];
 
@@ -92,12 +91,7 @@ const Main = () => {
 
 	const playerNumber = isResultVisible || visibleInfo === VISIBLE_INFO_CHOICES.NUMBER ? currentPlayer.id : '??';
 	let playerName = isResultVisible || visibleInfo === VISIBLE_INFO_CHOICES.NAME
-		? (
-			<>
-				{currentPlayer.firstName.toUpperCase()}
-				<span>{currentPlayer.lastName.toUpperCase()}</span>
-			</>
-		)
+		? (<>{currentPlayer.firstName.toUpperCase()}<span>{currentPlayer.lastName.toUpperCase()}</span></>)
 		: (<>?? <span>??</span></>);
 
 	if (!isClient) {
