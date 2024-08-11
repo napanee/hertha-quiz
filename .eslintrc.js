@@ -51,7 +51,7 @@ module.exports = {
 				named: 'never', // default: never
 			}
 		],
-		'@stylistic/padded-blocks': ["error", "never"],
+		'@stylistic/padded-blocks': ['error', 'never'],
 		'@stylistic/max-len': ['error', {
 			code: 120,
 			ignoreComments: true,
@@ -92,6 +92,9 @@ module.exports = {
 		'@stylistic/brace-style': ['error', '1tbs'],
 		'@stylistic/arrow-parens': ['error', 'always'],
 		'@stylistic/jsx-indent-props': ['error', 'tab'],
+		'@stylistic/jsx-one-expression-per-line': ['error', {
+			'allow': 'single-line',
+		}],
 
 		// Plugin: @typescript-eslint
 		'@typescript-eslint/naming-convention': [ // feature frozen...
