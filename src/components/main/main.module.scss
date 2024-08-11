@@ -1,20 +1,17 @@
-import styled, { DefaultTheme, css } from 'styled-components';
-
-
-export const Wrapper = styled.div`
+.wrapper {
 	overflow: hidden;
 	height: 100vh;
-	background-color: ${({ theme }) => theme.palette.primary.main};
-`;
+	background-color: $color-primary-main;
+}
 
-export const Card = styled.div`
+.card {
 	display: flex;
 	flex-direction: column;
 	overflow: hidden;
 	height: 100vh;
-`;
+}
 
-export const PlayerImage = styled.div`
+.player-image {
 	flex: 1 0 auto;
 	position: relative;
 
@@ -27,34 +24,29 @@ export const PlayerImage = styled.div`
 			height: auto;
 		}
 	}
-`;
+}
 
-export const PlayerInfo = styled.div`
+.player-info {
 	display: flex;
 	flex: 0 1 auto;
 	align-items: center;
 	gap: 20px;
 	position: relative;
 	padding: clamp(10px, 5vh, 20px) 5vw;
+	background-image: linear-gradient(
+		270deg,
+		$color-background-secondary,
+		$color-background-secondary 60%,
+		$color-background-primary
+	);
+}
 
-	${({ theme }) => css`
-		background-image: linear-gradient(
-			270deg,
-			${theme.palette.background.secondary},
-			${theme.palette.background.secondary} 60%,
-			${theme.palette.background.primary}
-		);
-	`};
-`;
-
-export const PlayerNumber = styled.span<{ $isAnswerd: boolean; $isCorrect: boolean | undefined; theme: DefaultTheme }>`
+.player-number {
 	flex: 0 1 110px;
 	font-family: HerthaBlack, Arial, Helvetica, sans-serif;
 	font-size: 10vh;
-
-	${({ $isAnswerd, $isCorrect, theme }) => css`
-		color: ${$isAnswerd && !$isCorrect ? '#FF0000' : theme.palette.secondary.main};
-	`};
+	text-align: center;
+	color: $color-secondary-main;
 
 	select {
 		opacity: 0;
@@ -66,17 +58,14 @@ export const PlayerNumber = styled.span<{ $isAnswerd: boolean; $isCorrect: boole
 		width: 100%;
 		height: 100%;
 	}
-`;
+}
 
-export const PlayerName = styled.span<{ $isAnswerd: boolean; $isCorrect: boolean | undefined; theme: DefaultTheme }>`
+.player-name {
 	flex: 1 0 auto;
 	font-family: HerthaRegular, Arial, Helvetica, sans-serif;
 	font-size: 4vh;
 	line-height: 1;
-
-	${({ $isAnswerd, $isCorrect, theme }) => css`
-		color: ${$isAnswerd && !$isCorrect ? '#FF0000' : theme.palette.common.white};
-	`};
+	color: $color-primary-text;
 
 	> span {
 		display: block;
@@ -93,19 +82,65 @@ export const PlayerName = styled.span<{ $isAnswerd: boolean; $isCorrect: boolean
 		width: 100%;
 		height: 100%;
 	}
-`;
+}
 
-export const ButtonNext = styled.a`
+.attempts {
+	display: flex;
+	align-items: center;
+	position: absolute;
+	border: 0;
+	left: 0;
+	bottom: 0;
+	margin: 0;
+	padding: 0;
+	height: 30px;
+	background-color: $color-primary-main;
+	font-family: HerthaBlack, Arial, Helvetica, sans-serif;
+	font-size: 1rem;
+
+	li {
+		position: relative;
+		text-indent: -999px;
+		width: 25px;
+		height: 20px;
+		list-style: none;
+
+		&::before {
+			content: "⚪";
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 50%;
+			translate: -50% 0;
+			text-indent: 0;
+		}
+
+		&.is-correct {
+			&::before {
+				content: "🟢";
+			}
+		}
+
+		&.is-wrong {
+			&::before {
+				content: "🔴";
+			}
+		}
+	}
+}
+
+.next {
 	cursor: pointer;
 	display: flex;
 	align-items: center;
 	position: absolute;
+	border: 0;
 	right: 0;
 	bottom: 0;
 	padding: 5px 20px 5px 5px;
 	height: 30px;
-	background-color: ${({ theme }) => theme.palette.primary.main};
-	color: ${({ theme }) => theme.palette.common.white};
+	background-color: $color-primary-main;
+	color: $color-primary-text;
 	font-family: HerthaBlack, Arial, Helvetica, sans-serif;
 	font-size: 1rem;
 
@@ -117,8 +152,8 @@ export const ButtonNext = styled.a`
 		right: 100%;
 		width: 0;
 		height: 0;
-		border: 15px solid ${({ theme }) => theme.palette.primary.main};
+		border: 15px solid $color-primary-main;
 		border-left-color: transparent;
 		border-top-color: transparent;
 	}
-`;
+}
