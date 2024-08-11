@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint; npm run lint:scss;",
     "lint:js": "next lint;",
-    "lint:scss": "stylelint \"**/*.{ts,js,tsx,jsx}\""
+    "lint:scss": "stylelint \"**/*.{scss, css}\""
   },
   "dependencies": {
     "next": "^14.2.5",

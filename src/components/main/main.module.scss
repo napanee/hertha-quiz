@@ -43,18 +43,15 @@
 
 .player-number {
 	flex: 0 1 110px;
+	color: $color-secondary-main;
 	font-family: HerthaBlack, Arial, Helvetica, sans-serif;
 	font-size: 10vh;
 	text-align: center;
-	color: $color-secondary-main;
 
 	select {
 		opacity: 0;
 		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
+		inset: 0;
 		width: 100%;
 		height: 100%;
 	}
@@ -62,10 +59,10 @@
 
 .player-name {
 	flex: 1 0 auto;
+	color: $color-primary-text;
 	font-family: HerthaRegular, Arial, Helvetica, sans-serif;
 	font-size: 4vh;
 	line-height: 1;
-	color: $color-primary-text;
 
 	> span {
 		display: block;
@@ -75,10 +72,7 @@
 	select {
 		opacity: 0;
 		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
+		inset: 0;
 		width: 100%;
 		height: 100%;
 	}
@@ -88,22 +82,22 @@
 	display: flex;
 	align-items: center;
 	position: absolute;
-	border: 0;
-	left: 0;
 	bottom: 0;
+	left: 0;
 	margin: 0;
 	padding: 0;
 	height: 30px;
 	background-color: $color-primary-main;
+	border: 0;
 	font-family: HerthaBlack, Arial, Helvetica, sans-serif;
 	font-size: 1rem;
 
 	li {
 		position: relative;
-		text-indent: -999px;
 		width: 25px;
 		height: 20px;
 		list-style: none;
+		text-indent: -999px;
 
 		&::before {
 			content: "⚪";
@@ -134,12 +128,12 @@
 	display: flex;
 	align-items: center;
 	position: absolute;
-	border: 0;
 	right: 0;
 	bottom: 0;
 	padding: 5px 20px 5px 5px;
 	height: 30px;
 	background-color: $color-primary-main;
+	border: 0;
 	color: $color-primary-text;
 	font-family: HerthaBlack, Arial, Helvetica, sans-serif;
 	font-size: 1rem;
