@@ -1,8 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-	compiler: {
-		styledComponents: true
-	},
+	sassOptions: {
+		prependData: `
+			@import 'src/styles/settings/constants';
+			@import 'src/styles/ui/typograohy';
+		`,
+  },
 	reactStrictMode: true,
 	images: {
 		remotePatterns: [

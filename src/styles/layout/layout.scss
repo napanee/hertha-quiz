@@ -1,0 +1,26 @@
+body {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html,
+body {
+	/* Allow better font smoothing: */
+	overflow: hidden;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	font-family: HerthaRegular, Verdana, Arial, sans-serif;
+	font-weight: inherit;
+	font-style: normal;
+	font-variation-settings: 'wght' 100;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+* {
+	box-sizing: border-box;
+}
