@@ -172,7 +172,7 @@ const Main = () => {
 		...attempts,
 		...(Array<string>(3 - attempts.length).fill('unanswered')),
 	], [attempts]);
-	const showSelect = attempts.length < 3 && choices.length > 0;
+	const isSelectVisible = attempts.length < 3 && choices.length > 0;
 
 	const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
 		event.preventDefault();
@@ -225,7 +225,7 @@ const Main = () => {
 				<div className={styles['player-info']}>
 					<span className={styles['player-name']}>
 						{playerName}
-						{showSelect && visibleInfo !== VISIBLE_INFO_CHOICES.NAME && (
+						{isSelectVisible && visibleInfo !== VISIBLE_INFO_CHOICES.NAME && (
 							<select onChange={handleChange}>
 								<option></option>
 								{choices
@@ -238,7 +238,7 @@ const Main = () => {
 					</span>
 					<span className={styles['player-number']}>
 						{playerNumber}
-						{showSelect && visibleInfo !== VISIBLE_INFO_CHOICES.NUMBER && (
+						{isSelectVisible && visibleInfo !== VISIBLE_INFO_CHOICES.NUMBER && (
 							<select onChange={handleChange}>
 								<option></option>
 								{choices
