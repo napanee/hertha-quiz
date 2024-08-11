@@ -82,7 +82,7 @@ type ReducerState = {
 	attempts: string[];
 	choices: Player[];
 	currentPlayer: Player;
-	isCorrect: boolean;
+	isResultVisible: boolean;
 	playerList: Player[];
 	visibleInfo: VISIBLE_INFO_CHOICES;
 };
@@ -98,7 +98,7 @@ function reducer(state: ReducerState, action: AnswerAction): ReducerState {
 					...state,
 					attempts: [...state.attempts, 'correct'],
 					choices: [],
-					isCorrect,
+					isResultVisible: true,
 				};
 			} else {
 				const filteredList = state.choices
@@ -110,12 +110,13 @@ function reducer(state: ReducerState, action: AnswerAction): ReducerState {
 					});
 				const shuffledList = shuffleList<Player>(filteredList);
 				const splitPool = halveList<Player>(shuffledList);
+				const attempts = [...state.attempts, 'wrong'];
 
 				return {
 					...state,
-					attempts: [...state.attempts, 'wrong'],
+					attempts,
 					choices: [...splitPool, state.currentPlayer],
-					isCorrect,
+					isResultVisible: attempts.length === 3,
 				};
 			}
 		case ACTION_KIND.NEXT: {
@@ -139,7 +140,7 @@ function reducer(state: ReducerState, action: AnswerAction): ReducerState {
 				attempts: [],
 				choices: playerListComplete,
 				currentPlayer: nextPlayer,
-				isCorrect: false,
+				isResultVisible: false,
 				playerList: modifiedPlayerList,
 				visibleInfo: random.choice<VISIBLE_INFO_CHOICES>(list) ?? VISIBLE_INFO_CHOICES.NAME,
 			};
@@ -155,14 +156,14 @@ function createInitialState(playerPool: Player[]): ReducerState {
 		attempts: [],
 		choices: playerPool,
 		currentPlayer: playerPool[randomInt],
-		isCorrect: false,
+		isResultVisible: false,
 		playerList: playerPool,
 		visibleInfo: random.choice<VISIBLE_INFO_CHOICES>(list) ?? VISIBLE_INFO_CHOICES.NAME,
 	};
 }
 
 const Main = () => {
-	const [{ attempts, choices, currentPlayer, visibleInfo, isCorrect }, dispatch] = useReducer(
+	const [{ attempts, choices, currentPlayer, visibleInfo, isResultVisible }, dispatch] = useReducer(
 		reducer,
 		playerListComplete,
 		createInitialState
@@ -194,8 +195,8 @@ const Main = () => {
 		return 'FERTIG';
 	}
 
-	const playerNumber = isCorrect || visibleInfo === VISIBLE_INFO_CHOICES.NUMBER ? currentPlayer.id : '??';
-	let playerName = isCorrect || visibleInfo === VISIBLE_INFO_CHOICES.NAME
+	const playerNumber = isResultVisible || visibleInfo === VISIBLE_INFO_CHOICES.NUMBER ? currentPlayer.id : '??';
+	let playerName = isResultVisible || visibleInfo === VISIBLE_INFO_CHOICES.NAME
 		? (
 			<>
 				{currentPlayer.firstName.toUpperCase()}
